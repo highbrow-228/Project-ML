@@ -1,5 +1,5 @@
 # 📖 Documentation for project: **Detection of fake Ukrainian news**
-
+![alt text](images/maim_photo.png)
 ### 📌 Description:
 This is a student project for the **Machine Learning** course, aimed at developing an application for detecting fake news.
 
