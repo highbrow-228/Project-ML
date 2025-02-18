@@ -1,6 +1,6 @@
-# Fake Ukrainian News Detection
+# Documentation for project "**Fake Ukrainian News Detection**"
 
-## Description
+## 📌 Description
 This is a student project for the **Machine Learning** course, aimed at developing an application for detecting fake news.
 
 🎯 The main goal is to create a machine learning model capable of analyzing Ukrainian news texts and determining their authenticity.
@@ -42,7 +42,7 @@ This is a student project for the **Machine Learning** course, aimed at developi
 
 
 ## 🚀 Development Journey
-### 📌the part about our project success story
+### 📌 Part about our project success story
 **🗓 2025-02-03** – Team Formation
 
 **💡2025-02-06** – Development of the Idea to Tackle Disinformation
