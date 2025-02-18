@@ -3,9 +3,9 @@
 ## Description
 This is a student project for the **Machine Learning** course, aimed at developing an application for detecting fake news.
 
-📌 The main goal is to create a machine learning model capable of analyzing Ukrainian news texts and determining their authenticity.
+🎯 The main goal is to create a machine learning model capable of analyzing Ukrainian news texts and determining their authenticity.
 
-## Approach
+## ✅Approach
 
 ### 1. Data Collection
 - Searching for available Ukrainian news datasets
