@@ -1,5 +1,5 @@
 .python-version
 .venv
 activate.txt
-data
 test.ipynb
+*.csv
