@@ -1,4 +1,5 @@
-# Documentation for project "**Fake Ukrainian News Detection**"
+# Documentation for project:
+# **Fake Ukrainian News Detection**
 
 ## 📌 Description
 This is a student project for the **Machine Learning** course, aimed at developing an application for detecting fake news.
