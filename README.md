@@ -37,7 +37,7 @@ This is a student project for the **Machine Learning** course, aimed at developi
 
 3. **Divided Dataset from Hugging Face**  
    - Source: [Filemail](https://bebra-bebrynka.filemail.com/d/rhfwkzhvbwtwmen)  
-   - Description: A modified version of the Hugging Face dataset, divided into 22 parts, each containing 1 million rows.  
+   - Description: A modified version of the Hugging Face dataset, divided into 23 parts, each containing 1 million rows.  
 
 
 ## 🚀 Development Journey
@@ -58,6 +58,6 @@ This is a student project for the **Machine Learning** course, aimed at developi
 - We consider the idea of labeling data this way: Choose sources we trust and mark that news as '**real**', then choose some suspicious sources and mark them as '**fake**'
 
 **🗂️2025-02-18**
- - Trying to download [`ukrainian-news`](https://huggingface.co/datasets/zeusfsx/ukrainian-news) dataset on HuggingFace but came across of lacking resources (the dataset is really large and takes a lot of RAM to process). So we decide to divide the dataset into 20 subsets for better processing.
+ - Trying to download [`ukrainian-news`](https://huggingface.co/datasets/zeusfsx/ukrainian-news) dataset on HuggingFace but came across of lacking resources (the dataset is really large and takes a lot of RAM to process). So we decide to divide the dataset into 23 subsets for better processing.
 
 Coming soon...
