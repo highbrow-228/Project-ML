@@ -62,8 +62,7 @@ Create a machine learning model capable of analyzing Ukrainian news texts and de
    - Using this [code](split_all_dataset_from_hf.py) for that purpose.
 
 # 🚀 Development Journey
-## 📌 Part about our project success story
-### **1️⃣ 2025-02-03** – Team Formation.
+### **⭐ 2025-02-03** – Team Formation.
 
 ### **👥 Team Members:**
 1. **PM**: [voinskyi](https://github.com/voinskyi)
