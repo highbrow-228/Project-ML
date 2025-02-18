@@ -49,8 +49,7 @@ This is a student project for the **Machine Learning** course, aimed at developi
 **🔍2025-02-14** – Searched for datasets with Ukrainian news, but failed
 
 **📰2025-02-16** – The first try to scrap news from [`TSN.ua`](https://tsn.ua/)
-
-  News is scrapping very slowly so we decided to find other ways of collecting data
+ - News is scrapping very slowly so we decided to find other ways of collecting data
 
 **🤔2025-02-17** 
  - Came across the problem of labeling data (how to label a huge amount of data (fake or real) by ourselves?)
