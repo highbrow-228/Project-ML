@@ -41,6 +41,9 @@ Create a machine learning model capable of analyzing Ukrainian news texts and de
    - Using an LLM model.
    - Falling back to GPT-based classification.
 
+### 4️⃣ Creating a WebUI for easier interaction
+- Using [streamlit](https://streamlit.io/) for this purpose.
+
 # 📊 Datasets Used
 
 ### 1️⃣ **Ukrainian Fake and True News**
