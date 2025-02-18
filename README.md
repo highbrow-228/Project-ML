@@ -42,17 +42,19 @@ Create a machine learning model capable of analyzing Ukrainian news texts and de
    - Falling back to GPT-based classification.
 
 # 📊 Datasets Used
-### 1️⃣ **Ukrainian Fake and True News**
-   - Source: [Kaggle](https://www.kaggle.com/datasets/zepopo/ukrainian-fake-and-true-news)
-   - Description: Contains Fake and True news about Russo-Ukrainian war
-### 2️⃣ **Ukrainian News**
-   - Source: [Hugging Face](https://huggingface.co/datasets/zeusfsx/ukrainian-news)
-   - Description: A dataset of news articles downloaded from various Ukrainian websites and Telegram channels
 
-   * **Divided the Dataset from Hugging Face**
-      - Source: [Filemail](https://bebra-bebrynka.filemail.com/d/rhfwkzhvbwtwmen)
-      - Description: A modified version of the Hugging Face dataset, divided into 22 parts, each containing 1 million rows.
-      - Using this [code](split_all_dataset_from_hf.py) for that purpose.
+### 1️⃣ **Ukrainian Fake and True News**
+- Source: [Kaggle](https://www.kaggle.com/datasets/zepopo/ukrainian-fake-and-true-news)
+- Description: Contains Fake and True news about Russo-Ukrainian war
+
+### 2️⃣ **Ukrainian News**
+- Source: [Hugging Face](https://huggingface.co/datasets/zeusfsx/ukrainian-news)
+- Description: A dataset of news articles downloaded from various Ukrainian websites and Telegram channels
+
+* **Divided the Dataset from Hugging Face**
+   - Source: [Filemail](https://bebra-bebrynka.filemail.com/d/rhfwkzhvbwtwmen)
+   - Description: A modified version of the Hugging Face dataset, divided into 22 parts, each containing 1 million rows.
+   - Using this [code](split_all_dataset_from_hf.py) for that purpose.
 
 # 🚀 Development Journey
 ## 📌 Part about our project success story
