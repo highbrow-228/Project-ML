@@ -58,7 +58,7 @@ Create a machine learning model capable of analyzing Ukrainian news texts and de
 * **Divided the Dataset from Hugging Face**
    - **Source:**
       * **[Filemail](https://bebra-bebrynka.filemail.com/d/rhfwkzhvbwtwmen)**. A modified version of the Hugging Face dataset, divided into 22 parts, each containing **1 million rows**.
-      * **[Filemail](soon)**. A modified version of the Hugging Face dataset, divided into 46 parts, each containing **500 thousand rows**.
+      * **[Filemail](https://bebra-bebrynka.filemail.com/d/yuyzprqfuxiyamp)**. A modified version of the Hugging Face dataset, divided into 46 parts, each containing **500 thousand rows**.
 
    - Using this [code](split_all_dataset_from_hf.py) for that purpose.
 
