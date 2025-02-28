@@ -2,4 +2,4 @@
 .venv
 activate.txt
 test.ipynb
-*.csv
+news_part_*
