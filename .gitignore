@@ -1,5 +1,6 @@
 .python-version
 .venv
+.env
 activate.txt
 test.ipynb
 news_part_*
