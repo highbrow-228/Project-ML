@@ -1,37 +1,31 @@
-# імпорти
-from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain_core.output_parsers import JsonOutputParser
-from pydantic import BaseModel, Field
-import pandas as pd
-import time
 import os
-from langchain_ollama.llms import OllamaLLM
+import random
+import time
+
+import pandas as pd
 from dotenv import load_dotenv
+from pydantic import BaseModel, Field
+
+from langchain_core.output_parsers import JsonOutputParser
+from langchain_core.exceptions import OutputParserException
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_ollama.llms import OllamaLLM
+from langchain_google_genai import ChatGoogleGenerativeAI
 
 
 # Завантажуємо .env файл
 load_dotenv()
-api_key = os.getenv("GEMINI_API_KEY")
 
-# Use Gemini
-model_name = "gemini-2.0-flash"
-llm = ChatGoogleGenerativeAI(
-    model=model_name,
-    api_key=api_key,
-    temperature=0.8,
-    max_retries=2,
-    top_p=0.9,
-    top_k=40,
-)
+# Ініціалізація змінних:
+api_key = os.getenv("GEMINI_API_KEY_1")
+api_key = os.getenv("GEMINI_API_KEY_1")
+n = 1_500
+delay = 15
 
-# Ініціалізація моделі
-class OutputModel(BaseModel):
-    title: str = Field(description="Заголовок новини")
-    text: str = Field(description="Текст новини (300-500 слів)")
-    # topic: str = Field(description="Обрана тема новини")
-    # type_news: str = Field(description="Обраний тип новини")
-
-parser = JsonOutputParser(pydantic_object=OutputModel)
+tones = ["Нейтральна", "Тривожна", "Заспокійлива"]
+styles = ["Суха подача", "Драматична", "Аналітична", "Іронічна", "Популістська", "Фактологічна"]
+type_of_news = ["Маніпуляція", "Дезінформація", "Пропаганда", "Вплив через емоції",]
+topics = ["Політика", "Економіка", "Суспільство", "Військові події", "Освіта", "Місцеве самоврядування", "Зовнішня політика", "Енергетика", "Інфраструктура", "Охорона здоров'я", "Культура", "Довкілля"]
 
 # System message
 system_message = """Ви — досвідчений журналіст із понад 10 роками роботи в провідних українських та міжнародних медіа.
@@ -65,14 +59,23 @@ human_message_template = """Згенеруй **фейкову, але правд
 {format_of_output}
 """
 
-import random
-from langchain_core.prompts import ChatPromptTemplate
+llm = ChatGoogleGenerativeAI(
+    model="gemini-2.0-flash",
+    api_key=api_key,
+    temperature=0.8,
+    max_retries=2,
+    top_p=0.9,
+    top_k=40,
+)
 
-tones = ["Нейтральна", "Тривожна", "Заспокійлива"]
-styles = ["Суха подача", "Драматична", "Аналітична", "Іронічна", "Популістська", "Фактологічна"]
-type_of_news = ["Маніпуляція", "Дезінформація", "Пропаганда", "Вплив через емоції",]
-topics = ["Політика", "Економіка", "Суспільство", "Військові події", "Освіта", "Місцеве самоврядування", "Зовнішня політика", "Енергетика", "Інфраструктура", "Охорона здоров'я", "Культура", "Довкілля"]
 
+# Ініціалізація моделі виводу
+class OutputModel(BaseModel):
+    title: str = Field(description="Заголовок новини")
+    text: str = Field(description="Текст новини (300-500 слів)")
+
+
+parser = JsonOutputParser(pydantic_object=OutputModel)
 
 # Генерація новини
 def generate_one_news():
@@ -106,14 +109,12 @@ def generate_one_news():
         return chain.invoke(input_data)
 
 # додавання до датасету
-def append_to_csv(news, path= "..//data//fake_news_dataset.csv"):
+def append_to_csv(news, path= "..//data//fake_news_dataset_2.csv"):
     df = pd.DataFrame(
         [
             {
                 "title": news['title'],
                 "text": news['text'],
-                # "topic": news['topic'],
-                # "type": news['type_news']
             }
         ]
     )
@@ -123,16 +124,21 @@ def append_to_csv(news, path= "..//data//fake_news_dataset.csv"):
     else:
         df.to_csv(path, mode="a", index=False, header=False, encoding="utf-8")
 
-n = 1_500
-delay = 15
 
-for i in range(1480):
-    news = generate_one_news()
-    append_to_csv(news)
-
+for i in range(n):
     current_time = time.strftime("%H:%M:%S")
-    print(f"[{current_time}][{i+1}/{n}] {news['title']}")
 
+    try:
+        news = generate_one_news()
+        print(f"[{current_time}][{i+1}/{n}] {news['title']}")
+    except OutputParserException as e:
+        print(f"[{current_time}][{i+1}/{n}] ❌ ПОМИЛКА ПАРСИНГУ: {e}")
+    except Exception as e:
+        print(f"[{current_time}][{i+1}/{n}] ❌ Інша помилка: {e}")
+
+
+
+    append_to_csv(news)
     time.sleep(delay)
 
 print(f"\n Згенеровано {n} новин. Результати збережено.")
