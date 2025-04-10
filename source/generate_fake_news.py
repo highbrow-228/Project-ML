@@ -17,9 +17,8 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 load_dotenv()
 
 # Ініціалізація змінних:
-api_key = os.getenv("GEMINI_API_KEY_1")
-api_key = os.getenv("GEMINI_API_KEY_1")
-n = 1_500
+api_key = os.getenv("GEMINI_API_KEY_2")
+n = 5_500
 delay = 15
 
 tones = ["Нейтральна", "Тривожна", "Заспокійлива"]
@@ -109,7 +108,7 @@ def generate_one_news():
         return chain.invoke(input_data)
 
 # додавання до датасету
-def append_to_csv(news, path= "..//data//fake_news_dataset_2.csv"):
+def append_to_csv(news, path= "..//data//fake_news_template.csv"):
     df = pd.DataFrame(
         [
             {
@@ -134,8 +133,13 @@ for i in range(n):
     except OutputParserException as e:
         print(f"[{current_time}][{i+1}/{n}] ❌ ПОМИЛКА ПАРСИНГУ: {e}")
     except Exception as e:
-        print(f"[{current_time}][{i+1}/{n}] ❌ Інша помилка: {e}")
-
+        if "429" in str(e):
+            print(f"[{current_time}][{i+1}/{n}] ❌ Ліміт запитів. Очікування 15 хвилин...")
+            time.sleep(900)  # 15 хвилин очікування
+            n += 1
+            continue  # повторимо ітерацію
+        else:
+            print(f"[{current_time}][{i+1}/{n}] ❌ Інша помилка: {e}")
 
 
     append_to_csv(news)
