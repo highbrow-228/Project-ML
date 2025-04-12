@@ -17,7 +17,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 load_dotenv()
 
 # Ініціалізація змінних:
-api_key = os.getenv("GEMINI_API_KEY_2")
+api_key = os.getenv("GEMINI_API_KEY_YURII_2")
 n = 5_500
 delay = 15
 
